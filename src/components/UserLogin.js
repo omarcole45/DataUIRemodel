@@ -26,18 +26,11 @@ class UserLogin extends React.Component{
 axios.post(`http://localhost:8080/omar-app-ws/users/login`,data)
 .then((response) =>
    {
-       //let userresponse = response;
-       //console.log(userresponse.data);
        if(response.status === 200) {
-       //    alert("Logged Succesfully");
         //toast("Logged Succesfully", {autoClose:3000,position:toast.POSITION.TOP_CENTER});
         let newUserId = response.headers.userid;
         this.setState({userid:newUserId,
             submitted:true});
-        //userresponse.Redirect("/home");
-        //return <Redirect push to= "/home" />;
-       //sessionStorage.setItem('data',JSON.stringify(userresponse));
-       //this.setState({redirectToReferrer: true});
        }
        
    },this)
@@ -49,15 +42,14 @@ axios.post(`http://localhost:8080/omar-app-ws/users/login`,data)
     
     render(){
         let redirect = null;
-        let usernumber = null;
         if(this.state.submitted){
            redirect = <Redirect to= {"/home/"+this.state.userid} />;
         }
-        return(<div className="UserLogin">
+        return(<div className="UserLogin" >
             {redirect}
             <h2>User Login</h2>
             Email:<input type="text" name='email' onChange={(event)=>{this.email=event.target.value}}></input>
-            Password:<input type="text" name='password' onChange={(event)=>{this.password=event.target.value}}></input>
+            Password:<input type="password" name='password' onChange={(event)=>{this.password=event.target.value}}></input>
             <button onClick={this.handleSubmit.bind(this)}>Log In</button>
                    
 
