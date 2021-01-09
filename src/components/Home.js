@@ -15,7 +15,7 @@ let headers = {
 class Home extends React.Component{
 
     state = {
-        userData:[]
+        addresses:[]
     }
  
     componentWillMount(){
@@ -35,6 +35,14 @@ class Home extends React.Component{
              <div>First Name: {this.state.firstName}</div>
              <div>Last Name: {this.state.lastName}</div> 
              <div>Email: {this.state.email}</div>
+             <div>Addresses: {this.state.addresses.map(address=>{
+              return <div><div> City: {address.city}</div>
+              <div>Country: {address.country}</div>
+              <div>Street Name: {address.streetName}</div>
+              <div>Postal Code: {address.postalCode}</div>
+              <div>Type: {address.type}</div>
+              </div>
+             })}</div>
         </div>)
     }
 }

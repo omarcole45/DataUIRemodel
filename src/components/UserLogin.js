@@ -52,7 +52,6 @@ axios.post(`http://localhost:8080/omar-app-ws/users/login`,data)
             Password:<input type="password" name='password' onChange={(event)=>{this.password=event.target.value}}></input>
             <button onClick={this.handleSubmit.bind(this)}>Log In</button>
                    
-
         </div>)
     }
 }
